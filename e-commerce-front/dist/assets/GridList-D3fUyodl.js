@@ -1,0 +1,1 @@
+import{j as e}from"./index-BQzuh-gl.js";import{C as m,R as o}from"./Spinner-jn7EIcrl.js";const c=({records:t,renderItem:r,Empty:n})=>{const i=t.length>0?t.map(s=>e.jsx(m,{xs:6,md:3,className:"d-flex justify-content-center mb-5 mt-2 ",children:r(s)},s.id)):n;return e.jsx(o,{children:i})};export{c as G};
