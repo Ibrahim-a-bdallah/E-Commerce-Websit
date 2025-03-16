@@ -13,35 +13,12 @@ This is a fully functional **E-Commerce Website** built with modern web technolo
 - ⚡ Optimized for performance & SEO
 
 ## 🏗️ Tech Stack
-- **Frontend:** React, Redux, Tailwind CSS
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Authentication:** JWT (JSON Web Token)
+- **Frontend:** React, Redux, Tailwind CSS, Axios
+- **Backend:** JSON Server (Mock API) with JSON Server Auth
+- **Validation:** Zod
+- **Authentication:** JSON Server Auth (JWT-based authentication)
 - **Payment Integration:** Stripe / PayPal
 
-## 🚀 Installation & Setup
-1. **Clone the repository**
-   ```sh
-   git clone https://github.com/your-username/e-commerce-website.git
-   cd e-commerce-website
-   ```
-
-2. **Install dependencies**
-   ```sh
-   npm install
-   ```
-
-3. **Set up environment variables** (Create a `.env` file and add necessary keys)
-   ```
-   MONGO_URI=your_mongodb_uri
-   JWT_SECRET=your_secret_key
-   STRIPE_SECRET_KEY=your_stripe_key
-   ```
-
-4. **Run the development server**
-   ```sh
-   npm run dev
-   ```
 
 ## 📸 Screenshots
 ![Home Page](https://via.placeholder.com/800x400)
@@ -54,5 +31,5 @@ Pull requests are welcome! Please follow the contribution guidelines.
 This project is licensed under the MIT License.
 
 ## 📧 Contact
-For any inquiries, reach out at [your-email@example.com](mailto:your-email@example.com).
+For any inquiries, reach out at [your-email@example.com](ibrahimabdall691@gmail.com).
 
