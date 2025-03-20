@@ -4,9 +4,9 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-server.db = router.db; // ربط قاعدة البيانات
+server.db = router.db;
 server.use(middlewares);
-server.use(auth); // تفعيل المصادقة
+server.use(auth);
 server.use(router);
 
 module.exports = server; // تصدير الخادم لـ Vercel
