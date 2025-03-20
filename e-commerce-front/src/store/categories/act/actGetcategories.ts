@@ -11,7 +11,6 @@ const actGetcategories = createAsyncThunk(
     const { rejectWithValue, signal } = thunkAPI;
     try {
       const respons = await axios.get<TRespons>("/categories", {
-        baseURL: "/api", // تحديد baseURL هنا مباشرة
         signal,
       });
       return respons.data;
