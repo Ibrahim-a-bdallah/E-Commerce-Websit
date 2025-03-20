@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "e-commerce-front/**/*",
+      "src": "e-commerce-front/dist/**/*",
       "use": "@vercel/static"
     }
   ],
@@ -17,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "e-commerce-front/$1"
+      "dest": "e-commerce-front/dist/$1"
     }
   ]
 }
