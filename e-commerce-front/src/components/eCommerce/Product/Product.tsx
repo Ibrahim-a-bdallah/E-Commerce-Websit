@@ -29,7 +29,8 @@ const Product = memo(
           )}
         </div>
         <div className={productImg}>
-          <img src={img} alt={title} />
+          {/* <img src={img} alt={title} /> */}
+          <link rel="preload" href={img} as="image" />
         </div>
         <h2>{title}</h2>
         <h3>{price.toFixed(2)} EGP</h3>

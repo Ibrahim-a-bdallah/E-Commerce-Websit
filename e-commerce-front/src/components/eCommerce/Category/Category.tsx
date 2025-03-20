@@ -8,7 +8,8 @@ export const Category = ({ title, img, prefix }: TCategory) => {
     <div className={category}>
       <Link to={`/categories/products/${prefix}`}>
         <div className={categoryImg}>
-          <img src={img} alt={title} />
+          {/* <img src={img} alt={title} /> */}
+          <link rel="preload" href={img} as="image" />
         </div>
         <div className={categoryTitle}>{title}</div>
       </Link>

@@ -41,7 +41,13 @@ const CartItem = memo(
       <div className={`${cartItem} d-flex gap-3 align-items-center`}>
         <div className={product}>
           <div className={productImg}>
-            <img style={{ width: "100px" }} src={img} alt={title} />
+            {/* <img style={{ width: "100px" }} src={img} alt={title} /> */}
+            <link
+              style={{ width: "100px" }}
+              rel="preload"
+              href={img}
+              as="image"
+            />
           </div>
           <div className={productInfo}>
             <h2>{title}</h2>
