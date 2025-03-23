@@ -3,9 +3,12 @@ import { TCategory } from "@type";
 import axiosErrorHandler from "@utils/axiosErrorHandler";
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://api.example.com";
-axios.defaults.baseURL = "/api"; // يجب أن يكون في ملف إعداد مثل src/axiosConfig.js
-
+export const api = axios.create({
+  baseURL: "/api", // تأكد من أن الرابط صحيح
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 type TRespons = TCategory[];
 
 const actGetcategories = createAsyncThunk(
