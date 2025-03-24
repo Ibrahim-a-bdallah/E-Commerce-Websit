@@ -6,6 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import "./services/axiosConfig";
 import "@styles/global.css";
 
 createRoot(document.getElementById("root")!).render(
