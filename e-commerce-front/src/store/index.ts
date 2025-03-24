@@ -20,7 +20,7 @@ import products from "./products/productsSlice";
 import cart from "./Cart/CartSlice";
 import wishlist from "./wishlist/wishlistSlice";
 //axios
-import "../services/axios.global.js";
+import "../services/axiosConfig.js";
 
 const rootPersistConfig = {
   key: "root",
