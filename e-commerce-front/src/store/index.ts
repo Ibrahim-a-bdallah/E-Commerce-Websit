@@ -19,8 +19,9 @@ import categories from "./categories/categoriesSlice";
 import products from "./products/productsSlice";
 import cart from "./Cart/CartSlice";
 import wishlist from "./wishlist/wishlistSlice";
+import axios from "axios";
 //axios
-import "../services/axiosConfig.js";
+axios.defaults.baseURL = "/api";
 
 const rootPersistConfig = {
   key: "root",
