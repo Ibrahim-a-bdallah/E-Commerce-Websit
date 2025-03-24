@@ -11,7 +11,7 @@ const actGetcategories = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue, signal } = thunkAPI;
     try {
-      const respons = await api.get<TRespons>("/categories", {
+      const respons = await api.get<TRespons>("/api/categories", {
         signal,
       });
       return respons.data;
