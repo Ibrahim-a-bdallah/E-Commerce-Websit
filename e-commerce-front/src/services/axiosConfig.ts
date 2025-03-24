@@ -1,3 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "/api";
+export const api = axios.create({
+  baseURL: "/api", // تأكد من أن الرابط صحيح
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
