@@ -16,7 +16,7 @@ app.use(express.json());
 
 // تعيين المسارات
 app.use("/users", userRoutes);
-app.use("/categories", categoryRoutes);
+app.use("api/categories", categoryRoutes);
 app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
 
