@@ -10,12 +10,11 @@ const actGetcategories = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue, signal } = thunkAPI;
     try {
-      const respons = await axios.get<TRespons>("/api/categories", {
-        signal,
-      });
-      console.log(respons.data);
+      const respons = await axios.get<TRespons>("/categories", { signal });
+      console.log("Fetched categories:", respons.data); // للتحقق من البيانات
       return respons.data;
     } catch (error) {
+      console.error("Error fetching categories:", error); // للتحقق من الأخطاء
       return rejectWithValue(axiosErrorHandler(error));
     }
   }
