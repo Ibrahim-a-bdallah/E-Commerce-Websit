@@ -21,7 +21,7 @@ app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
 
 // للاختبار المحلي
-app.listen(3001 || process.env.PORT, () =>
+app.listen(process.env.PORT || 3001, () =>
   console.log("Server running on port 3001")
 );
 
