@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+e-commerce-front/node_modules/
+e-commerce-back/node_modules/
+
+# Environment variables
+e-commerce-front/.env
+e-commerce-front/.env.local
+e-commerce-front/.env.*.local
+e-commerce-back/.env
+e-commerce-back/.env.local
+e-commerce-back/.env.*.local
+
+# Build output
+e-commerce-front/dist/
+e-commerce-back/dist/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
