@@ -12,7 +12,7 @@ const actSignInAuth = createAsyncThunk(
   async (formData: TFormProps, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await axios.post("/login", formData);
+      const res = await axios.post("/users/login", formData);
       return res.data;
     } catch (error) {
       return rejectWithValue(axiosErrorHandler(error));
