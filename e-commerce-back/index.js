@@ -15,10 +15,10 @@ app.use(cors());
 app.use(express.json());
 
 // تعيين المسارات
-app.use("/users", authController);
 app.use("/categories", categoryRoutes);
 app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
+app.use("/users", authController);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server running on ${process.env.PORT} PORT`)
