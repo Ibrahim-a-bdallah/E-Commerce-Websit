@@ -1,11 +1,11 @@
-import express from "express";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import User from "../models/user";
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 const router = express.Router();
 
-//ROUTE FOR REGISTER
+// ROUTE FOR REGISTER
 router.post("/register", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -35,7 +35,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//ROUTE FOR LOGIN
+// ROUTE FOR LOGIN
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -74,4 +74,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-export { router as authRouter };
+module.exports = router; // استخدام CommonJS بدلاً من export

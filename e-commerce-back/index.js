@@ -1,7 +1,7 @@
 const express = require("express");
 const connectDB = require("./utils/db");
 const cors = require("cors");
-const userRoutes = require("./controllers/authController");
+const authController = require("./controllers/authController");
 const categoryRoutes = require("./routes/categoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // تعيين المسارات
-app.use("/users", userRoutes);
+app.use("/users", authController);
 app.use("/categories", categoryRoutes);
 app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
