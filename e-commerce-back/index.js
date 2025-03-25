@@ -16,13 +16,12 @@ app.use(express.json());
 
 // تعيين المسارات
 app.use("/api/users", userRoutes);
-app.use("/api/categories", categoryRoutes);
+app.use("/categories", categoryRoutes);
 app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
 
-// للاختبار المحلي
-app.listen(process.env.PORT || 3001, () =>
-  console.log("Server running on port 3001")
+app.listen(process.env.PORT, () =>
+  console.log(`Server running on ${process.env.PORT} PORT`)
 );
 
 module.exports = app;
