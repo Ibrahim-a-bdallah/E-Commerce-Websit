@@ -8,12 +8,10 @@ export const useWishlist = () => {
   const { productFullInfo, loading, error } = useAppSelector(
     (state) => state.wishlist
   );
-  console.log(productFullInfo);
 
   const items = useAppSelector((state) => state.cart.items);
 
   useEffect(() => {
-    console.log("pp");
     const promise = dispatch(actGetWishlist("productsFullInfo"));
     return () => {
       promise.abort();

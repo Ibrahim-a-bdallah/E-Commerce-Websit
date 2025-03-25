@@ -4,7 +4,6 @@ import { TCategory } from "@type";
 const { category, categoryImg, categoryTitle } = styles;
 
 export const Category = ({ title, img, prefix }: TCategory) => {
-  console.log(img);
   return (
     <div className={category}>
       <Link to={`/categories/products/${prefix}`}>
