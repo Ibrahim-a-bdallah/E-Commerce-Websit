@@ -16,9 +16,10 @@ const actGetItems = createAsyncThunk(
       return fulfillWithValue([]);
     }
     try {
-      const prifixIds = itemId.map((el) => `id=${el}`).join("&");
+      const prifixIds = itemId.map((el) => `_id=${el}`).join("&");
+      console.log(prifixIds);
 
-      const response = await axios.get<TResponse>(`/cart?${prifixIds}`, {
+      const response = await axios.get<TResponse>(`/products?${prifixIds}`, {
         signal,
       });
       return response.data;
