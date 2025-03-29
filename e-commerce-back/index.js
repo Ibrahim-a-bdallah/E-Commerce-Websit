@@ -21,7 +21,7 @@ app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
 app.use("/users", authController);
 
-app.listen(3000, () =>
+app.listen(process.env.PORT, () =>
   console.log(`Server running on ${process.env.PORT} PORT`)
 );
 
