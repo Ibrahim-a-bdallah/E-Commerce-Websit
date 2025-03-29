@@ -23,8 +23,9 @@ export const useProducts = () => {
 
   const productFullInfo = records.map((el) => ({
     ...el,
-    quantity: items[el.id] || 0,
-    like: wishlist.itemsId.includes(el.id),
+    quantity: items[el._id] || 0,
+    like: wishlist.itemsId.includes(el._id),
   }));
+
   return { productFullInfo, loading, error, param };
 };

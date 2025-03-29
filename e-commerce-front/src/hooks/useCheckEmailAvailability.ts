@@ -12,13 +12,15 @@ const useCheckEmailAvailability = () => {
     setEmailStatus("checking");
     try {
       const response = await axios.get(`/users?email=${email}`);
-      if (!response.data.length) {
+
+      if (response.data === "Email is available") {
         setEmailStatus("available");
-      } else {
+      } else if (response.data === "Email is already taken") {
         setEmailStatus("notAvailable");
       }
     } catch (error) {
       setEmailStatus("failed");
+      console.error(error);
     }
   };
   const resetCheckEmailAvailability = () => {

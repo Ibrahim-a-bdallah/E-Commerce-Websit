@@ -14,7 +14,7 @@ const CartItemsList = ({
 }: CartItemListProps) => {
   const renderList = products.map((el) => (
     <CartItem
-      key={el.id}
+      key={el._id}
       {...el}
       changeQuantity={changeQuantity}
       removeProduct={removeProduct}

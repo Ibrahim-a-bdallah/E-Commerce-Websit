@@ -13,8 +13,8 @@ const actLikeToggle = createAsyncThunk(
         `/wishlist?userId=${auth.user?.id}&productId=${id}`
       );
 
-      if (isItemExist.data.length > 0) {
-        await axios.delete(`/wishlist/${isItemExist.data[0].id}`);
+      if (isItemExist.data !== null) {
+        await axios.delete(`/wishlist?id=${isItemExist.data._id}`);
         return { type: "remove", id };
       } else {
         await axios.post("/wishlist", { userId: auth.user?.id, productId: id });

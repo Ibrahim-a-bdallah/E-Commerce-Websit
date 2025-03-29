@@ -5,13 +5,13 @@ import { memo } from "react";
 const { cartItem, product, productImg, productInfo, cartItemSelection } = style;
 
 type changeQuantity = {
-  changeQuantity: (id: number, quantity: number) => void;
-  removeProduct: (id: number) => void;
+  changeQuantity: (_id: number, quantity: number) => void;
+  removeProduct: (_id: number) => void;
 };
 
 const CartItem = memo(
   ({
-    id,
+    _id,
     title,
     price,
     quantity,
@@ -34,7 +34,7 @@ const CartItem = memo(
       event: React.ChangeEvent<HTMLSelectElement>
     ) => {
       const quantity = +event.target.value;
-      changeQuantity(id, quantity);
+      changeQuantity(_id, quantity);
     };
 
     return (
@@ -52,7 +52,7 @@ const CartItem = memo(
           <div className={productInfo}>
             <h2>{title}</h2>
             <p>{price.toFixed(2)}</p>
-            <Button onClick={() => removeProduct(id)}>remove</Button>
+            <Button onClick={() => removeProduct(_id)}>remove</Button>
           </div>
         </div>
 

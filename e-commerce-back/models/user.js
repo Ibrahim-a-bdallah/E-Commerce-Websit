@@ -10,6 +10,17 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  confirmPassword: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  firstName: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema); // استخدام module.exports بدلاً من export default

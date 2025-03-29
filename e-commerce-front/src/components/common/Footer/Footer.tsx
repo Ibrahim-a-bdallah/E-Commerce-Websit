@@ -1,9 +1,11 @@
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
-const {footerContainer} = styles
+const { footerContainer } = styles;
 
 export const Footer = () => {
   return (
-    <div className={footerContainer}>© 2025 Our Ecom. All rights reserved.</div>
-  )
-}
+    <div className={footerContainer}>
+      © 2025 Our Ecom. All rights reserved.created by Ibrahim{" "}
+    </div>
+  );
+};

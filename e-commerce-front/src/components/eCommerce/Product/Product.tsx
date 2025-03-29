@@ -5,10 +5,11 @@ import Like from "@assets/svg/like.svg?react";
 import { TProduct } from "@type";
 import { memo } from "react";
 import { useProduct } from "@hooks/useProduct";
+
 const { product, productImg, maximumNotice, wishlist } = styles;
 
 const Product = memo(
-  ({ id, title, img, price, max, quantity, like }: TProduct) => {
+  ({ _id, title, img, price, max, quantity, like }: TProduct) => {
     const {
       likedHandler,
       addToCartHandler,
@@ -16,7 +17,7 @@ const Product = memo(
       disableBtn,
       currentReminingQuantity,
       isLoading,
-    } = useProduct({ id, max, quantity: quantity ?? 0 });
+    } = useProduct({ _id, max, quantity: quantity ?? 0 });
     return (
       <div className={product}>
         <div className={wishlist} onClick={likedHandler}>

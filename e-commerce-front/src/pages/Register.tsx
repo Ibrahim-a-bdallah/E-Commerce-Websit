@@ -63,6 +63,7 @@ const Register = () => {
   if (accessToken) {
     return <Navigate to="/" />;
   }
+
   return (
     <>
       <Row>

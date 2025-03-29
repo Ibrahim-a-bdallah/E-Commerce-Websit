@@ -36,7 +36,7 @@ const wishlistSlice = createSlice({
       } else if (action.payload?.type === "remove") {
         state.itemsId = state.itemsId.filter((el) => el !== action.payload?.id);
         state.productFullInfo = state.productFullInfo.filter(
-          (el) => el.id !== action.payload?.id
+          (el) => el._id !== action.payload?.id
         );
       }
     });

@@ -6,7 +6,7 @@ type TGridListPropes<T> = {
   Empty: React.ReactNode;
 };
 
-type HasId = { id?: number };
+type HasId = { _id?: number };
 
 const GridList = <T extends HasId>({
   records,
@@ -18,7 +18,7 @@ const GridList = <T extends HasId>({
       ? records.map((category) => {
           return (
             <Col
-              key={category.id}
+              key={category._id}
               xs={6}
               md={3}
               className="d-flex justify-content-center mb-5 mt-2 "

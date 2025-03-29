@@ -61,7 +61,7 @@ const authSlice = createSlice({
     builder.addCase(actSignInAuth.fulfilled, (state, action) => {
       state.loading = "fulfilled";
       state.user = action.payload.user;
-      state.accessToken = action.payload.accessToken;
+      state.accessToken = action.payload.token;
     });
     builder.addCase(actSignInAuth.rejected, (state, action) => {
       state.loading = "rejected";

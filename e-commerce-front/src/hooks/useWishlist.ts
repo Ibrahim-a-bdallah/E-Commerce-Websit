@@ -21,7 +21,7 @@ export const useWishlist = () => {
 
   const records = productFullInfo.map((el) => ({
     ...el,
-    quantity: items[el.id],
+    quantity: items[el._id],
     like: true,
   }));
 

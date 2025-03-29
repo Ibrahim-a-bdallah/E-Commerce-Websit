@@ -5,11 +5,11 @@ import { actLikeToggle } from "@store/wishlist/wishlistSlice";
 import { useEffect, useState } from "react";
 
 type TProps = {
-  id: number;
+  _id: number;
   max: number;
   quantity: number;
 };
-export const useProduct = ({ id, max, quantity }: TProps) => {
+export const useProduct = ({ _id, max, quantity }: TProps) => {
   const dispatch = useAppDispatch();
 
   const { accessToken } = useAppSelector((state) => state.auth);
@@ -31,7 +31,7 @@ export const useProduct = ({ id, max, quantity }: TProps) => {
         type: "success",
       })
     );
-    dispatch(addtocart(id));
+    dispatch(addtocart(_id));
   };
 
   //disable
@@ -49,7 +49,7 @@ export const useProduct = ({ id, max, quantity }: TProps) => {
   const likedHandler = () => {
     if (!isLoading && accessToken) {
       setIsLoading(true);
-      dispatch(actLikeToggle(id))
+      dispatch(actLikeToggle(_id))
         .unwrap()
         .then(() => setIsLoading(false))
         .catch(() => setIsLoading(false));

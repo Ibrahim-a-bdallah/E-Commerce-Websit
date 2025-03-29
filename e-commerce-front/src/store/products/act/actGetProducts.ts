@@ -15,6 +15,7 @@ const actGetProducts = createAsyncThunk(
           signal,
         }
       );
+
       return respons.data;
     } catch (error) {
       return rejectWithValue(axiosErrorHandler(error));

@@ -8,18 +8,15 @@ const router = express.Router();
 // ROUTE FOR REGISTER
 router.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      return res.status(400).json({ msg: "User already exists" });
-    }
+    const { email, password, firstName, lastName } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const newUser = new User({
       email,
       password: hashedPassword,
+      firstName,
+      lastName,
     });
 
     const savedUser = await newUser.save();
@@ -42,7 +39,7 @@ router.post("/login", async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res.status(400).json("This email is not registered");
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -61,12 +58,17 @@ router.post("/login", async (req, res) => {
 
           res.json({
             token,
-            user: { id: user._id, email: user.email },
+            user: {
+              id: user._id,
+              email: user.email,
+              firstName: user.firstName,
+              lastName: user.lastName,
+            },
           });
         }
       );
     } else {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res.status(400).json("Incorrect password");
     }
   } catch (error) {
     console.error(error);
@@ -74,12 +76,23 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// ROUTE FOR CHECK EMAIL AVAILABLE OR NOT
 router.get("/", async (req, res) => {
   try {
-    const users = await User.find();
-    res.json(users);
+    const { email } = req.query;
+    if (email) {
+      const user = await User.findOne({ email });
+      if (user) {
+        return res.json("Email is already taken");
+      }
+      res.json("Email is available");
+    } else {
+      const users = await User.find();
+      res.json(users);
+    }
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(error);
+    res.status(500).send("Server error");
   }
 });
 

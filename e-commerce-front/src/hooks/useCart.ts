@@ -21,8 +21,8 @@ export const useCart = () => {
   );
   const products = productFullinfo.map((el) => ({
     ...el,
-    quantity: items[el.id],
-    total: items[el.id] * el.price,
+    quantity: items[el._id],
+    total: items[el._id] * el.price,
   }));
   const changedQuantity = useCallback(
     (id: number, quantity: number) => {

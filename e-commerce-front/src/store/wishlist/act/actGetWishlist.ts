@@ -27,7 +27,7 @@ const actGetWishlist = createAsyncThunk(
         return { data: concatenatedItemsId, dataType: "productsIds" };
       } else {
         const concatenatedItemsId = userWishlist.data
-          .map((el) => `id=${el.productId}`)
+          .map((el) => `_id=${el.productId}`)
           .join("&");
 
         const response = await axios.get<TResponse>(
