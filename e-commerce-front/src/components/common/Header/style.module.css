@@ -10,6 +10,12 @@
     text-decoration: inherit;
     font-size: 2.3rem;
     margin: 0;
+
+    span {
+        background: var(--Gradient-1, linear-gradient(90deg, #ff9c8d 18.06%, #d655a5 64.19%, #6053cb 100%));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 .headerLogo h1 {
@@ -20,4 +26,96 @@
 .headerLogo h1 span {
     display: block;
     margin-right: 5px;
+}
+
+.navstyle {
+    padding: 0;
+    border-radius: 6px;
+    color: white !important;
+
+    a {
+        color: var(--color-text-mood);
+    }
+}
+
+.navLink {
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    background-color: var(--color-background-mood);
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: .2s;
+    -webkit-transition: .2s;
+    color: #fff;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+
+    Nav a:focus,
+    Nav a:hover,
+    Nav a[aria-current="page"] {
+        color: #d655a5 !important;
+    }
+}
+
+
+.button_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(90deg, #FF8038 0%, #FF0099 30.43%, #00EBEB 68.23%, #DB00FF 100%);
+    background-size: 600% 600%;
+    border-radius: 50px;
+    animation: AnimateBorder 4s ease infinite;
+    -webkit-animation: AnimateBorder 4s ease infinite;
+    -moz-animation: AnimateBorder 4s ease infinite;
+    z-index: -1;
+    transform: translate(-2px, -2px);
+    transition: filter 1s ease-in;
+}
+
+.form {
+    a {
+        color: var(--color-text-mood);
+    }
+}
+
+@keyframes AnimateBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 850px) {
+    .headerLogo {
+        font-size: 1.5rem;
+    }
+
+    .navLink {
+        font-size: 12px;
+        padding: 0;
+
+        a {
+            padding: 10px 3px !important;
+        }
+    }
+
+    .form {
+        a {
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+    }
 }

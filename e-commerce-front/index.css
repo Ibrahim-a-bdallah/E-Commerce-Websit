@@ -1,0 +1,23 @@
+:root {
+    --color-background-mood: #081229;
+    --color-text-mood: #fff;
+    --color-light-pink: #ec5990;
+}
+
+body {
+    background-color: var(--color-background-mood) !important;
+    color: var(--color-text-mood) !important;
+}
+
+.bg_childes {
+    fill: var(--color-light-pink);
+}
+
+@media (max-width : 768px) {
+
+    .bg_childes,
+    .mood {
+        width: 20px !important;
+    }
+
+}

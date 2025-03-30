@@ -4,21 +4,31 @@ import getCartQauntitySelctor from "@store/selctores";
 import HeaderIconsHandler from "../HeaderIconsHandler/HeaderIconsHandler";
 
 import style from "./style.module.css";
+import { useAppSelector } from "@store/hook";
 
 const { headerLeftBar } = style;
 
 const HeaderLeftBar = () => {
+  const { accessToken } = useAppSelector((state) => state.auth);
   return (
     <div className={headerLeftBar}>
-      <HeaderIconsHandler
-        navigated="/wishlist"
-        svgIcon={<LogoWishlist title="wishlist icon" />}
-        QuantityURL={(state) => state.wishlist.itemsId.length}
-        title="Wishlist"
-      />
+      {accessToken && (
+        <HeaderIconsHandler
+          navigated="/wishlist"
+          svgIcon={
+            <LogoWishlist
+              title="wishlist icon"
+              className="bg_childes"
+              style={{ color: "red" }}
+            />
+          }
+          QuantityURL={(state) => state.wishlist.itemsId.length}
+          title="Wishlist"
+        />
+      )}
       <HeaderIconsHandler
         navigated="/cart"
-        svgIcon={<LogoCart title="basket icon" />}
+        svgIcon={<LogoCart title="basket icon" className="bg_childes" />}
         QuantityURL={getCartQauntitySelctor}
         title="Cart"
       />
