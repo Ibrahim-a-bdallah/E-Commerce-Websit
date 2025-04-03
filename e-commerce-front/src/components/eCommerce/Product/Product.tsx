@@ -33,27 +33,31 @@ const Product = memo(
           <img src={img} alt={title} />
           {/* <link rel="preload" href={img} as="image" /> */}
         </div>
-        <h2>{title}</h2>
-        <h3>{price.toFixed(2)} EGP</h3>
-        <p className={maximumNotice}>
-          {QuantityReachedToMax
-            ? "You reach to limit"
-            : `you can add ${currentReminingQuantity} item(s) to cart`}
-        </p>
-        <Button
-          className="btn-primary"
-          onClick={addToCartHandler}
-          variant="into"
-          disabled={disableBtn || QuantityReachedToMax}
-        >
-          {disableBtn ? (
-            <>
-              <Spinner animation="border" size="sm" /> loading...
-            </>
-          ) : (
-            "Add to Cart"
-          )}
-        </Button>
+        <div className="info">
+          <div className="details">
+            <h2>{title}</h2>
+            <h3>{price.toFixed(2)} EGP</h3>
+            <p className={maximumNotice}>
+              {QuantityReachedToMax
+                ? "You reach to limit"
+                : `you can add ${currentReminingQuantity} item(s) to cart`}
+            </p>
+          </div>
+          <Button
+            className="btn-primary"
+            onClick={addToCartHandler}
+            variant="into"
+            disabled={disableBtn || QuantityReachedToMax}
+          >
+            {disableBtn ? (
+              <>
+                <Spinner animation="border" size="sm" /> loading...
+              </>
+            ) : (
+              "Add to Cart"
+            )}
+          </Button>
+        </div>
       </div>
     );
   }
