@@ -10,7 +10,7 @@ import { Container } from "react-bootstrap";
 const Products = memo(() => {
   const { productFullInfo, loading, error, param } = useProducts();
   return (
-    <Container>
+    <Container className="mt-4">
       <Heading title={`${param.prefix} Products`} />
       <Loading loading={loading} error={error} type="product">
         <GridList

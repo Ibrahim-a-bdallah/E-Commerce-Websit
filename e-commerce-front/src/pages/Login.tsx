@@ -42,14 +42,15 @@ const Login = () => {
   }
   return (
     <>
-      <Row>
+      <Row className="h-100 d-flex align-items-center">
         <Col md={{ span: 6, offset: 3 }}>
           {searchParams.get("message") ? (
             <Alert variant="success">{searchParams.get("message")}</Alert>
           ) : (
             ""
           )}
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <h2 className="text-center mb-4">Login</h2>
             <Input
               label="Email"
               register={register}
@@ -63,15 +64,17 @@ const Login = () => {
               name="password"
               error={errors.password?.message}
             />
-            <button type="submit" className="btn btn-primary">
-              {loading === "pending" ? (
-                <>
-                  <Spinner animation="border" size="sm" /> loading
-                </>
-              ) : (
-                "Submit"
-              )}
-            </button>
+            <div className="d-flex justify-content-center">
+              <button type="submit" className="btn btn-primary">
+                {loading === "pending" ? (
+                  <>
+                    <Spinner animation="border" size="sm" /> loading
+                  </>
+                ) : (
+                  "Login"
+                )}
+              </button>
+            </div>
             {error && (
               <div className="alert alert-danger mt-2" role="alert">
                 {error}

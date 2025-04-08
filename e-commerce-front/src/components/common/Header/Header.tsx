@@ -1,51 +1,21 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import styles from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import HeaderSideBar from "./headerLeftBar/HeaderLeftBar";
-import { useAppDispatch, useAppSelector } from "@store/hook";
-import { logOut } from "@store/signInAuth/authSlice";
-import { useEffect, useState } from "react";
-import actGetWishlist from "@store/wishlist/act/actGetWishlist";
 import LogoSun from "@assets/svg/sun-2-svgrepo-com.svg?react";
+import { logOut } from "@store/signInAuth/authSlice";
 import LogoMoon from "@assets/svg/moon-svgrepo-com.svg?react";
+import User from "@assets/svg/user.svg?react";
+import useHeader from "@hooks/useHeader";
 
 const { headerContainer, headerLogo, navstyle, button_bg, navLink, form } =
   styles;
 export const Header = () => {
-  const dispatch = useAppDispatch();
-  const { accessToken, user } = useAppSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (accessToken) {
-      dispatch(actGetWishlist("ProductIds"));
-    }
-  }, [dispatch, accessToken]);
-
-  const [isDarkMode, setIsDarkMode] = useState("light");
-
-  const handleMood = () => {
-    if (isDarkMode === "dark") {
-      document.documentElement.style.setProperty(
-        "--color-background-mood",
-        "#081229"
-      );
-      document.documentElement.style.setProperty("--color-text-mood", "#fff");
-      setIsDarkMode("light");
-    } else {
-      document.documentElement.style.setProperty(
-        "--color-background-mood",
-        "white"
-      );
-      document.documentElement.style.setProperty("--color-text-mood", "black");
-      setIsDarkMode("dark");
-    }
-  };
-
-  const logo = `col-2 col-md-4 ${headerLogo}`;
+  const { user, accessToken, handleMood, isDarkMode, dispatch } = useHeader();
   return (
     <header>
       <div className={headerContainer}>
-        <h1 className={logo}>
+        <h1 className={`col-2 col-md-3 ${headerLogo}`}>
           <span>Tika</span>
         </h1>
         <div className={navLink}>
@@ -78,7 +48,7 @@ export const Header = () => {
             <div />
           </div>
 
-          {isDarkMode !== "dark" ? (
+          {isDarkMode === "dark" ? (
             <LogoSun
               width="30px"
               height="30px"
@@ -109,23 +79,38 @@ export const Header = () => {
                 </Nav.Link>
               </Nav>
             ) : (
-              <NavDropdown
-                className="bg-white"
-                title={`Welcome: ${user?.firstName} ${user?.lastName} `}
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item as={NavLink} to="profile">
-                  Profile
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  as={NavLink}
-                  to="/"
-                  onClick={() => dispatch(logOut())}
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="dropdown-basic"
+                  className="no-arrow"
                 >
-                  LogOut
-                </NavDropdown.Item>
-              </NavDropdown>
+                  <User
+                    width="30px"
+                    height="30px"
+                    overflow="visible"
+                    cursor="pointer"
+                    className="mood fill"
+                    title={user?.firstName}
+                  />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item as={NavLink} to="profile">
+                    Profile
+                  </Dropdown.Item>
+                  <Dropdown.Item as={NavLink} to="/settings">
+                    Settings
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item
+                    as={NavLink}
+                    to="/home"
+                    onClick={() => dispatch(logOut())}
+                  >
+                    LogOut
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             )}
           </div>
         </div>

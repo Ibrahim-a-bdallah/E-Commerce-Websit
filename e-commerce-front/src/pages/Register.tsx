@@ -66,9 +66,9 @@ const Register = () => {
 
   return (
     <>
-      <Row>
+      <Row className="h-100 d-flex align-items-center">
         <Col md={{ span: 6, offset: 3 }}>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form className="form" onSubmit={handleSubmit(onSubmit)}>
             <Input
               label="First Name"
               register={register}
@@ -125,7 +125,7 @@ const Register = () => {
                   <Spinner animation="border" size="sm" /> loading
                 </>
               ) : (
-                "Submit"
+                "Register"
               )}
             </button>
             {error && (

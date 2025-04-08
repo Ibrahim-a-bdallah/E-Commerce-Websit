@@ -9,12 +9,13 @@
     border-radius: 6px;
     transition: all .3s ease;
     border: 1px solid transparent;
+    color: white !important;
 
     &:hover {
         border: 1px solid #636363;
 
         img {
-            scale: 1.3
+            scale: 1.2
         }
     }
 }

@@ -11,6 +11,8 @@ const Login = lazy(() => import("@pages/Login"));
 const Register = lazy(() => import("@pages/Register"));
 const Cart = lazy(() => import("@pages/Cart"));
 const Wishlist = lazy(() => import("@pages/Wishlist"));
+const Settings = lazy(() => import("@pages/Settings"));
+
 import Error from "@pages/Error";
 import SuspensLottieFallback from "@components/feedback/LottieHandler/SuspensLottieFallback";
 import Profile from "@pages/Profile";
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: (
+          <SuspensLottieFallback>
+            <Home />
+          </SuspensLottieFallback>
+        ),
+      },
+      {
+        path: "home",
         element: (
           <SuspensLottieFallback>
             <Home />
@@ -109,6 +119,16 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <SuspensLottieFallback>
               <Profile />
+            </SuspensLottieFallback>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "settings",
+        element: (
+          <ProtectedRoute>
+            <SuspensLottieFallback>
+              <Settings />
             </SuspensLottieFallback>
           </ProtectedRoute>
         ),

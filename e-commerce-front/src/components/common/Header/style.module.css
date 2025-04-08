@@ -98,14 +98,16 @@
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 768px) {
     .headerLogo {
         font-size: 1.5rem;
     }
 
     .navLink {
-        font-size: 12px;
+        font-size: 9px;
         padding: 0;
+        height: 35px;
+        letter-spacing: 0;
 
         a {
             padding: 10px 3px !important;

@@ -44,7 +44,7 @@ const Product = memo(
             </p>
           </div>
           <Button
-            className="btn-primary"
+            className="btn-primary w-100"
             onClick={addToCartHandler}
             variant="into"
             disabled={disableBtn || QuantityReachedToMax}

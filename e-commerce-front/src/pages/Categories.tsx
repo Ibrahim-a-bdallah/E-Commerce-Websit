@@ -9,7 +9,7 @@ import LottieHandler from "@components/feedback/LottieHandler/LottieHandler";
 const Categories = () => {
   const { records, loading, error } = useCategories();
   return (
-    <Container>
+    <Container className="mt-4">
       <Heading title="Categories" />
       <Loading loading={loading} error={error} type="category">
         <GridList

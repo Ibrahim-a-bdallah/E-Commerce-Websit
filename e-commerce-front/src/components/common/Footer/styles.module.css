@@ -3,5 +3,5 @@
     text-align: center;
     padding: 10px 0;
     color: var(--color-text-mood);
-    border-top: 1px solid white;
+    border-top: 1px solid var(--color-text-mood);
 }

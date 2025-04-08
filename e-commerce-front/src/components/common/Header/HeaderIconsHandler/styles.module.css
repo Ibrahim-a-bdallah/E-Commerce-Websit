@@ -54,7 +54,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .basketContainer h3 {
         font-size: 0;
         margin: 0;

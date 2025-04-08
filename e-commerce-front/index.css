@@ -2,6 +2,7 @@
     --color-background-mood: #081229;
     --color-text-mood: #fff;
     --color-light-pink: #ec5990;
+    --color-form-shadow: #ec59904a;
 }
 
 body {
@@ -12,6 +13,31 @@ body {
 
 .bg_childes {
     fill: var(--color-light-pink);
+}
+
+.form {
+    padding: 20px;
+    background: var(--color-background-mood);
+    border-radius: 6px;
+    box-shadow: 0 0 10px 1px var(--color-form-shadow);
+}
+
+.fill {
+    fill: var(--color-text-mood);
+}
+
+.no-arrow {
+    background-color: transparent !important;
+    border: none !important;
+
+    &::after {
+        display: none !important;
+    }
+
+    &:hover {
+        background-color: transparent !important;
+
+    }
 }
 
 @media (max-width : 768px) {
