@@ -11,6 +11,29 @@ body {
     user-select: none;
 }
 
+.home {
+    .content {
+        p {
+            opacity: .5;
+        }
+
+        .btn {
+            background: var(--Gradient-1, linear-gradient(90deg, #ff9c8d 10.06%, #d655a5 64.19%, #6053cb 100%));
+            border: none;
+            transition: all .3s ease;
+
+            &:hover {
+                color: #ffffffba;
+            }
+
+        }
+    }
+
+    img {
+        border-radius: 50px;
+    }
+}
+
 .bg_childes {
     fill: var(--color-light-pink);
 }
@@ -41,10 +64,18 @@ body {
 }
 
 @media (max-width : 768px) {
+    .home {
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 20px;
+
+        .content {
+            margin-bottom: 20px;
+        }
+    }
 
     .bg_childes,
     .mood {
         width: 20px !important;
     }
-
 }
