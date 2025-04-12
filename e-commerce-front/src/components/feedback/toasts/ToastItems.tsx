@@ -13,7 +13,7 @@ const ToastItems = ({ title, message, type, id }: TToast) => {
   } = useToastItems(id ?? "");
   return (
     <div
-      className={`alert ${`alert-${type}`} ${toastItem}`}
+      className={`ms-5 alert ${`alert-${type}`} ${toastItem}`}
       onMouseEnter={handleMouseEvent}
       onMouseLeave={handleMouseEvent}
     >
