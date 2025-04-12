@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="home d-flex justify-content-center align-items-center gap-3 ">
+    <div className="home mt-4 d-flex justify-content-center align-items-center gap-3 ">
       <div className="content col-md-6">
         <h1>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
         <p>
