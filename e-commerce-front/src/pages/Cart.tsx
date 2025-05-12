@@ -3,6 +3,7 @@ import { SubTotal } from "@components/eCommerce";
 import CartItemsList from "@components/eCommerce/CartItemsList/CartItemsList";
 import Loading from "@components/feedback/loading/Loading";
 import LottieHandler from "@components/feedback/LottieHandler/LottieHandler";
+import CheckOut from "@components/paymob/CheckOut/CheckOut";
 import { useCart } from "@hooks/useCart";
 
 const Cart = () => {
@@ -20,6 +21,7 @@ const Cart = () => {
               removeProduct={removeProduct}
             />
             <SubTotal total={total} />
+            <CheckOut />
           </>
         ) : (
           <LottieHandler styled="" type="empty" message="Your Cart is Empty" />

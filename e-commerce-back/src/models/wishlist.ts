@@ -16,4 +16,4 @@ const wishlistSchema = mongoose.Schema({
 // إضافة فهرس مركب فريد
 wishlistSchema.index({ userId: 1, productId: 1 }, { unique: true });
 
-module.exports = mongoose.model("Wishlist", wishlistSchema);
+export default mongoose.model("Wishlist", wishlistSchema);

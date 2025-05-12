@@ -1,16 +1,16 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+import { Router, Request, Response } from "express";
+import { hash, compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
+import User from "../models/user";
 
-const router = express.Router();
+const router = Router();
 
 // ROUTE FOR REGISTER
 router.post("/register", async (req, res) => {
   try {
     const { email, password, firstName, lastName } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 12);
+    const hashedPassword = await hash(password, 12);
 
     const newUser = new User({
       email,
@@ -21,9 +21,13 @@ router.post("/register", async (req, res) => {
 
     const savedUser = await newUser.save();
 
-    const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = sign(
+      { id: savedUser._id },
+      process.env.JWT_SECRET as string,
+      {
+        expiresIn: "1h",
+      }
+    );
 
     res.status(201).json({ token, msg: "User registered successfully" });
   } catch (error) {
@@ -33,7 +37,7 @@ router.post("/register", async (req, res) => {
 });
 
 // ROUTE FOR LOGIN
-router.post("/login", async (req, res) => {
+router.post("/login", async (req: Request, res: Response): Promise<any> => {
   try {
     const { email, password } = req.body;
 
@@ -42,16 +46,16 @@ router.post("/login", async (req, res) => {
       return res.status(400).json("This email is not registered");
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await compare(password, user.password);
     if (isMatch) {
       const payload = {
         id: user._id,
         email: user.email,
       };
 
-      jwt.sign(
+      sign(
         payload,
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRET as string,
         { expiresIn: 3600 },
         (error, token) => {
           if (error) throw error;
@@ -77,7 +81,7 @@ router.post("/login", async (req, res) => {
 });
 
 // ROUTE FOR CHECK EMAIL AVAILABLE OR NOT
-router.get("/", async (req, res) => {
+router.get("/", async (req: Request, res: Response): Promise<any> => {
   try {
     const { email } = req.query;
     if (email) {
@@ -96,4 +100,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router; // استخدام CommonJS بدلاً من export
+export default router; // استخدام CommonJS بدلاً من export
