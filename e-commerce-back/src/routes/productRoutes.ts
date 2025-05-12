@@ -1,9 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const mongoose = require("mongoose");
-const Product = require("../models/product");
+import Product from "../models/product";
 
-router.get("/", async (req, res) => {
+router.get("/", async (req: any, res: any) => {
   try {
     const { _id, cat_prefix } = req.query;
     let products;
@@ -22,9 +21,9 @@ router.get("/", async (req, res) => {
       products = await Product.find({ cat_prefix });
     }
 
-    if (!products.length) {
-      return res.status(404).json({ msg: "No products found" });
-    }
+    // if (!products.length) {
+    //   return res.status(404).json({ msg: "No products found" });
+    // }
 
     res.json(products);
   } catch (error) {
@@ -33,4 +32,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

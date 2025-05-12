@@ -19,6 +19,7 @@ import categories from "./categories/categoriesSlice";
 import products from "./products/productsSlice";
 import cart from "./Cart/CartSlice";
 import wishlist from "./wishlist/wishlistSlice";
+import paymob from "./paymob/paymobSlice";
 
 const rootPersistConfig = {
   key: "root",
@@ -44,6 +45,7 @@ const rootReducer = combineReducers({
   products,
   cart: persistReducer(cartPersistConfig, cart),
   wishlist,
+  paymob,
 });
 
 const store = configureStore({

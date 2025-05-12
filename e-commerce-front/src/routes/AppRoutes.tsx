@@ -17,6 +17,7 @@ import Error from "@pages/Error";
 import SuspensLottieFallback from "@components/feedback/LottieHandler/SuspensLottieFallback";
 import Profile from "@pages/Profile";
 import ProtectedRoute from "@components/Auth/protectedRoutes";
+import Paymob from "@pages/Paymob";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -111,6 +112,16 @@ const router = createBrowserRouter([
           <SuspensLottieFallback>
             <Register />
           </SuspensLottieFallback>
+        ),
+      },
+      {
+        path: "paymobIframe",
+        element: (
+          <ProtectedRoute>
+            <SuspensLottieFallback>
+              <Paymob />
+            </SuspensLottieFallback>
+          </ProtectedRoute>
         ),
       },
       {
