@@ -30,4 +30,9 @@ app.use("/products", productRoutes);
 app.use("/wishlist", wishlistRoutes);
 app.use("/users", authController);
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 export default app;
