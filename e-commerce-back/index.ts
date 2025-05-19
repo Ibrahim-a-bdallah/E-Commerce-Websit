@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
 import express from "express";
-import connectDB from "./utils/db";
+import connectDB from "./src/utils/db";
 import cors from "cors";
-import authController from "./controllers/sign.Controller";
-import categoryRoutes from "./routes/categoryRoutes";
-import productRoutes from "./routes/productRoutes";
-import wishlistRoutes from "./routes/wishlistRoutes";
-import router from "./routes";
+import authController from "./src/controllers/sign.Controller";
+import categoryRoutes from "./src/routes/categoryRoutes";
+import productRoutes from "./src/routes/productRoutes";
+import wishlistRoutes from "./src/routes/wishlistRoutes";
+import router from "./src/routes";
 
 dotenv.config();
 
