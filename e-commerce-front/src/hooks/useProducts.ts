@@ -20,7 +20,7 @@ export const useProducts = () => {
       dispatch(cleanupProductRecords());
     };
   }, [dispatch, param]);
-
+  console.log(records);
   const productFullInfo = records.map((el) => ({
     ...el,
     quantity: items[el._id] || 0,
